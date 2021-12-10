@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Adopcion_PGModelStoreContainer" CdmEntityContainer="Adopcion_PGEntities">
+    <EntitySetMapping Name="adoptante">
+      <EntityTypeMapping TypeName="Adopcion_PGModel.adoptante">
+        <MappingFragment StoreEntitySet="adoptante">
+          <ScalarProperty Name="id_adoptante" ColumnName="id_adoptante" />
+          <ScalarProperty Name="nom_adoptante" ColumnName="nom_adoptante" />
+          <ScalarProperty Name="cel_adoptante" ColumnName="cel_adoptante" />
+          <ScalarProperty Name="dir_adoptante" ColumnName="dir_adoptante" />
+          <ScalarProperty Name="ingresos_mensuales" ColumnName="ingresos_mensuales" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="facilitador">
+      <EntityTypeMapping TypeName="Adopcion_PGModel.facilitador">
+        <MappingFragment StoreEntitySet="facilitador">
+          <ScalarProperty Name="id_facilitador" ColumnName="id_facilitador" />
+          <ScalarProperty Name="nom_facilitador" ColumnName="nom_facilitador" />
+          <ScalarProperty Name="cel_facilitador" ColumnName="cel_facilitador" />
+          <ScalarProperty Name="dir_facilitador" ColumnName="dir_facilitador" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mascota">
+      <EntityTypeMapping TypeName="Adopcion_PGModel.mascota">
+        <MappingFragment StoreEntitySet="mascota">
+          <ScalarProperty Name="id_mascota" ColumnName="id_mascota" />
+          <ScalarProperty Name="especie" ColumnName="especie" />
+          <ScalarProperty Name="genero" ColumnName="genero" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seguimiento">
+      <EntityTypeMapping TypeName="Adopcion_PGModel.Seguimiento">
+        <MappingFragment StoreEntitySet="Seguimiento">
+          <ScalarProperty Name="cod_seguimiento" ColumnName="cod_seguimiento" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id_facilitador" ColumnName="id_facilitador" />
+          <ScalarProperty Name="id_mascota" ColumnName="id_mascota" />
+          <ScalarProperty Name="id_adoptante" ColumnName="id_adoptante" />
+          <ScalarProperty Name="estado_mascota" ColumnName="estado_mascota" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Actualizar_adoptante" FunctionName="Adopcion_PGModel.Store.Actualizar_adoptante" />
+    <FunctionImportMapping FunctionImportName="Actualizar_facilitador" FunctionName="Adopcion_PGModel.Store.Actualizar_facilitador" />
+    <FunctionImportMapping FunctionImportName="Actualizar_mascota" FunctionName="Adopcion_PGModel.Store.Actualizar_mascota" />
+    <FunctionImportMapping FunctionImportName="Actualizar_seguimiento" FunctionName="Adopcion_PGModel.Store.Actualizar_seguimiento" />
+    <FunctionImportMapping FunctionImportName="Agregar_adoptante" FunctionName="Adopcion_PGModel.Store.Agregar_adoptante" />
+    <FunctionImportMapping FunctionImportName="Agregar_facilitador" FunctionName="Adopcion_PGModel.Store.Agregar_facilitador" />
+    <FunctionImportMapping FunctionImportName="Agregar_mascota" FunctionName="Adopcion_PGModel.Store.Agregar_mascota" />
+    <FunctionImportMapping FunctionImportName="Agregar_seguimiento" FunctionName="Adopcion_PGModel.Store.Agregar_seguimiento" />
+    <FunctionImportMapping FunctionImportName="anula_adoptante" FunctionName="Adopcion_PGModel.Store.anula_adoptante" />
+    <FunctionImportMapping FunctionImportName="consultar_adoptante" FunctionName="Adopcion_PGModel.Store.consultar_adoptante">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Adopcion_PGModel.consultar_adoptante_Result">
+          <ScalarProperty Name="id_adoptante" ColumnName="id_adoptante" />
+          <ScalarProperty Name="nom_adoptante" ColumnName="nom_adoptante" />
+          <ScalarProperty Name="cel_adoptante" ColumnName="cel_adoptante" />
+          <ScalarProperty Name="dir_adoptante" ColumnName="dir_adoptante" />
+          <ScalarProperty Name="ingresos_mensuales" ColumnName="ingresos_mensuales" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="consultar_facilitador" FunctionName="Adopcion_PGModel.Store.consultar_facilitador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Adopcion_PGModel.consultar_facilitador_Result">
+          <ScalarProperty Name="id_facilitador" ColumnName="id_facilitador" />
+          <ScalarProperty Name="nom_facilitador" ColumnName="nom_facilitador" />
+          <ScalarProperty Name="cel_facilitador" ColumnName="cel_facilitador" />
+          <ScalarProperty Name="dir_facilitador" ColumnName="dir_facilitador" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Consultar_mascota" FunctionName="Adopcion_PGModel.Store.Consultar_mascota">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Adopcion_PGModel.Consultar_mascota_Result">
+          <ScalarProperty Name="id_mascota" ColumnName="id_mascota" />
+          <ScalarProperty Name="especie" ColumnName="especie" />
+          <ScalarProperty Name="genero" ColumnName="genero" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Consultar_seguimiento" FunctionName="Adopcion_PGModel.Store.Consultar_seguimiento">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Adopcion_PGModel.Consultar_seguimiento_Result">
+          <ScalarProperty Name="cod_seguimiento" ColumnName="cod_seguimiento" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id_facilitador" ColumnName="id_facilitador" />
+          <ScalarProperty Name="id_mascota" ColumnName="id_mascota" />
+          <ScalarProperty Name="id_adoptante" ColumnName="id_adoptante" />
+          <ScalarProperty Name="estado_mascota" ColumnName="estado_mascota" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Eliminar_facilitador" FunctionName="Adopcion_PGModel.Store.Eliminar_facilitador" />
+    <FunctionImportMapping FunctionImportName="Eliminar_mascota" FunctionName="Adopcion_PGModel.Store.Eliminar_mascota" />
+    <FunctionImportMapping FunctionImportName="Eliminar_seguimiento" FunctionName="Adopcion_PGModel.Store.Eliminar_seguimiento" />
+  </EntityContainerMapping>
+</Mapping>

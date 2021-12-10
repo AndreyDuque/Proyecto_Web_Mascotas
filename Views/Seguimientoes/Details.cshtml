@@ -1,0 +1,74 @@
+﻿@model mvc.Models.Seguimiento
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Seguimiento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_facilitador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_facilitador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_mascota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_mascota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_adoptante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_adoptante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado_mascota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado_mascota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.activo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.cod_seguimiento }) |
+    @Html.ActionLink("Regresar a la tabla", "Index")
+</p>

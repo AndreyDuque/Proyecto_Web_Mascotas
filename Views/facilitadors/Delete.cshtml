@@ -1,0 +1,56 @@
+﻿@model mvc.Models.facilitador
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Desea eliminar este registro?</h3>
+<div>
+    <h4>Facilitador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_facilitador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_facilitador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cel_facilitador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cel_facilitador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dir_facilitador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dir_facilitador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.activo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar a la tabla", "Index")
+        </div>
+    }
+</div>

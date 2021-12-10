@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Adopcion_PGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="adoptante">
+    <Key>
+      <PropertyRef Name="id_adoptante" />
+    </Key>
+    <Property Name="id_adoptante" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="nom_adoptante" Type="nvarchar" MaxLength="50" />
+    <Property Name="cel_adoptante" Type="nvarchar" MaxLength="10" />
+    <Property Name="dir_adoptante" Type="nvarchar" MaxLength="50" />
+    <Property Name="ingresos_mensuales" Type="int" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="facilitador">
+    <Key>
+      <PropertyRef Name="id_facilitador" />
+    </Key>
+    <Property Name="id_facilitador" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="nom_facilitador" Type="nvarchar" MaxLength="50" />
+    <Property Name="cel_facilitador" Type="nvarchar" MaxLength="10" />
+    <Property Name="dir_facilitador" Type="nvarchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="mascota">
+    <Key>
+      <PropertyRef Name="id_mascota" />
+    </Key>
+    <Property Name="id_mascota" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="especie" Type="nvarchar" MaxLength="10" />
+    <Property Name="genero" Type="nvarchar" MaxLength="10" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="30" />
+    <Property Name="edad" Type="int" />
+    <Property Name="estado" Type="nvarchar(max)" />
+    <Property Name="observaciones" Type="nvarchar(max)" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Seguimiento">
+    <Key>
+      <PropertyRef Name="cod_seguimiento" />
+    </Key>
+    <Property Name="cod_seguimiento" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="id_facilitador" Type="nvarchar" MaxLength="10" />
+    <Property Name="id_mascota" Type="nvarchar" MaxLength="10" />
+    <Property Name="id_adoptante" Type="nvarchar" MaxLength="10" />
+    <Property Name="estado_mascota" Type="nvarchar(max)" />
+    <Property Name="observaciones" Type="nvarchar(max)" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <Function Name="Actualizar_adoptante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_adoptante" Type="nvarchar" Mode="In" />
+    <Parameter Name="nom_adoptante" Type="nvarchar" Mode="In" />
+    <Parameter Name="cel_adoptante" Type="nvarchar" Mode="In" />
+    <Parameter Name="dir_adoptante" Type="nvarchar" Mode="In" />
+    <Parameter Name="ingresos_mensuales" Type="int" Mode="In" />
+    <Parameter Name="activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Actualizar_facilitador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_facilitador" Type="nvarchar" Mode="In" />
+    <Parameter Name="nom_facilitador" Type="nvarchar" Mode="In" />
+    <Parameter Name="cel_facilitador" Type="nvarchar" Mode="In" />
+    <Parameter Name="dir_facilitador" Type="nvarchar" Mode="In" />
+    <Parameter Name="activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Actualizar_mascota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_mascota" Type="nvarchar" Mode="In" />
+    <Parameter Name="especie" Type="nvarchar" Mode="In" />
+    <Parameter Name="genero" Type="nvarchar" Mode="In" />
+    <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="edad" Type="int" Mode="In" />
+    <Parameter Name="estado" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="observaciones" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Actualizar_seguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cod_seguimiento" Type="nvarchar" Mode="In" />
+    <Parameter Name="fecha" Type="date" Mode="In" />
+    <Parameter Name="id_facilitador" Type="nvarchar" Mode="In" />
+    <Parameter Name="id_mascota" Type="nvarchar" Mode="In" />
+    <Parameter Name="id_adoptante" Type="nvarchar" Mode="In" />
+    <Parameter Name="estado_mascota" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="observaciones" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Agregar_adoptante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_adoptante" Type="nvarchar" Mode="In" />
+    <Parameter Name="nom_adoptante" Type="nvarchar" Mode="In" />
+    <Parameter Name="cel_adoptante" Type="nvarchar" Mode="In" />
+    <Parameter Name="dir_adoptante" Type="nvarchar" Mode="In" />
+    <Parameter Name="ingresos_mensuales" Type="int" Mode="In" />
+    <Parameter Name="activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Agregar_facilitador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_facilitador" Type="nvarchar" Mode="In" />
+    <Parameter Name="nom_facilitador" Type="nvarchar" Mode="In" />
+    <Parameter Name="cel_facilitador" Type="nvarchar" Mode="In" />
+    <Parameter Name="dir_facilitador" Type="nvarchar" Mode="In" />
+    <Parameter Name="activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Agregar_mascota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_mascota" Type="nvarchar" Mode="In" />
+    <Parameter Name="especie" Type="nvarchar" Mode="In" />
+    <Parameter Name="genero" Type="nvarchar" Mode="In" />
+    <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="edad" Type="int" Mode="In" />
+    <Parameter Name="estado" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="observaciones" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Agregar_seguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cod_seguimiento" Type="nvarchar" Mode="In" />
+    <Parameter Name="fecha" Type="date" Mode="In" />
+    <Parameter Name="id_facilitador" Type="nvarchar" Mode="In" />
+    <Parameter Name="id_mascota" Type="nvarchar" Mode="In" />
+    <Parameter Name="id_adoptante" Type="nvarchar" Mode="In" />
+    <Parameter Name="estado_mascota" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="observaciones" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="anula_adoptante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="aid_adoptante" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="consultar_adoptante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cid_adoptante" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="consultar_facilitador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cid_facilitador" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Consultar_mascota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cid_mascota" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Consultar_seguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cod_seguimiento" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_facilitador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="aid_facilitador" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_mascota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="aid_mascota" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Eliminar_seguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cod_seguimiento" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="Adopcion_PGModelStoreContainer">
+    <EntitySet Name="adoptante" EntityType="Self.adoptante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="facilitador" EntityType="Self.facilitador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mascota" EntityType="Self.mascota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Seguimiento" EntityType="Self.Seguimiento" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

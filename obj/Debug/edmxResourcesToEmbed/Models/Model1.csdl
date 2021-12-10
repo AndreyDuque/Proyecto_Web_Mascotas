@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Adopcion_PGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="adoptante">
+    <Key>
+      <PropertyRef Name="id_adoptante" />
+    </Key>
+    <Property Name="id_adoptante" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nom_adoptante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cel_adoptante" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="dir_adoptante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ingresos_mensuales" Type="Int32" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="facilitador">
+    <Key>
+      <PropertyRef Name="id_facilitador" />
+    </Key>
+    <Property Name="id_facilitador" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nom_facilitador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cel_facilitador" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="dir_facilitador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mascota">
+    <Key>
+      <PropertyRef Name="id_mascota" />
+    </Key>
+    <Property Name="id_mascota" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="especie" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="genero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="edad" Type="Int32" />
+    <Property Name="estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Seguimiento">
+    <Key>
+      <PropertyRef Name="cod_seguimiento" />
+    </Key>
+    <Property Name="cod_seguimiento" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="id_facilitador" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="id_mascota" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="id_adoptante" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="estado_mascota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="Adopcion_PGEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="adoptante" EntityType="Self.adoptante" />
+    <EntitySet Name="facilitador" EntityType="Self.facilitador" />
+    <EntitySet Name="mascota" EntityType="Self.mascota" />
+    <EntitySet Name="Seguimiento" EntityType="Self.Seguimiento" />
+    <FunctionImport Name="Actualizar_adoptante">
+      <Parameter Name="id_adoptante" Mode="In" Type="String" />
+      <Parameter Name="nom_adoptante" Mode="In" Type="String" />
+      <Parameter Name="cel_adoptante" Mode="In" Type="String" />
+      <Parameter Name="dir_adoptante" Mode="In" Type="String" />
+      <Parameter Name="ingresos_mensuales" Mode="In" Type="Int32" />
+      <Parameter Name="activo" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Actualizar_facilitador">
+      <Parameter Name="id_facilitador" Mode="In" Type="String" />
+      <Parameter Name="nom_facilitador" Mode="In" Type="String" />
+      <Parameter Name="cel_facilitador" Mode="In" Type="String" />
+      <Parameter Name="dir_facilitador" Mode="In" Type="String" />
+      <Parameter Name="activo" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Actualizar_mascota">
+      <Parameter Name="id_mascota" Mode="In" Type="String" />
+      <Parameter Name="especie" Mode="In" Type="String" />
+      <Parameter Name="genero" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="edad" Mode="In" Type="Int32" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+      <Parameter Name="observaciones" Mode="In" Type="String" />
+      <Parameter Name="activo" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Actualizar_seguimiento">
+      <Parameter Name="cod_seguimiento" Mode="In" Type="String" />
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="id_facilitador" Mode="In" Type="String" />
+      <Parameter Name="id_mascota" Mode="In" Type="String" />
+      <Parameter Name="id_adoptante" Mode="In" Type="String" />
+      <Parameter Name="estado_mascota" Mode="In" Type="String" />
+      <Parameter Name="observaciones" Mode="In" Type="String" />
+      <Parameter Name="activo" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Agregar_adoptante">
+      <Parameter Name="id_adoptante" Mode="In" Type="String" />
+      <Parameter Name="nom_adoptante" Mode="In" Type="String" />
+      <Parameter Name="cel_adoptante" Mode="In" Type="String" />
+      <Parameter Name="dir_adoptante" Mode="In" Type="String" />
+      <Parameter Name="ingresos_mensuales" Mode="In" Type="Int32" />
+      <Parameter Name="activo" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Agregar_facilitador">
+      <Parameter Name="id_facilitador" Mode="In" Type="String" />
+      <Parameter Name="nom_facilitador" Mode="In" Type="String" />
+      <Parameter Name="cel_facilitador" Mode="In" Type="String" />
+      <Parameter Name="dir_facilitador" Mode="In" Type="String" />
+      <Parameter Name="activo" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Agregar_mascota">
+      <Parameter Name="id_mascota" Mode="In" Type="String" />
+      <Parameter Name="especie" Mode="In" Type="String" />
+      <Parameter Name="genero" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="edad" Mode="In" Type="Int32" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+      <Parameter Name="observaciones" Mode="In" Type="String" />
+      <Parameter Name="activo" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Agregar_seguimiento">
+      <Parameter Name="cod_seguimiento" Mode="In" Type="String" />
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="id_facilitador" Mode="In" Type="String" />
+      <Parameter Name="id_mascota" Mode="In" Type="String" />
+      <Parameter Name="id_adoptante" Mode="In" Type="String" />
+      <Parameter Name="estado_mascota" Mode="In" Type="String" />
+      <Parameter Name="observaciones" Mode="In" Type="String" />
+      <Parameter Name="activo" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="anula_adoptante">
+      <Parameter Name="aid_adoptante" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="consultar_adoptante" ReturnType="Collection(Adopcion_PGModel.consultar_adoptante_Result)">
+      <Parameter Name="cid_adoptante" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="consultar_facilitador" ReturnType="Collection(Adopcion_PGModel.consultar_facilitador_Result)">
+      <Parameter Name="cid_facilitador" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Consultar_mascota" ReturnType="Collection(Adopcion_PGModel.Consultar_mascota_Result)">
+      <Parameter Name="cid_mascota" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Consultar_seguimiento" ReturnType="Collection(Adopcion_PGModel.Consultar_seguimiento_Result)">
+      <Parameter Name="cod_seguimiento" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Eliminar_facilitador">
+      <Parameter Name="aid_facilitador" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Eliminar_mascota">
+      <Parameter Name="aid_mascota" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Eliminar_seguimiento">
+      <Parameter Name="cod_seguimiento" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="consultar_adoptante_Result">
+    <Property Type="String" Name="id_adoptante" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="nom_adoptante" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cel_adoptante" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="dir_adoptante" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ingresos_mensuales" Nullable="true" />
+    <Property Type="Boolean" Name="activo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="consultar_facilitador_Result">
+    <Property Type="String" Name="id_facilitador" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="nom_facilitador" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cel_facilitador" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="dir_facilitador" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="activo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Consultar_mascota_Result">
+    <Property Type="String" Name="id_mascota" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="especie" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="genero" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="edad" Nullable="true" />
+    <Property Type="String" Name="estado" Nullable="true" />
+    <Property Type="String" Name="observaciones" Nullable="true" />
+    <Property Type="Boolean" Name="activo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Consultar_seguimiento_Result">
+    <Property Type="String" Name="cod_seguimiento" Nullable="false" MaxLength="10" />
+    <Property Type="DateTime" Name="fecha" Nullable="true" />
+    <Property Type="String" Name="id_facilitador" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="id_mascota" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="id_adoptante" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="estado_mascota" Nullable="true" />
+    <Property Type="String" Name="observaciones" Nullable="true" />
+    <Property Type="Boolean" Name="activo" Nullable="true" />
+  </ComplexType>
+</Schema>

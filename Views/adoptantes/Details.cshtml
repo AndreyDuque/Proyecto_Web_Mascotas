@@ -1,0 +1,58 @@
+﻿@model mvc.Models.adoptante
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>adoptante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_adoptante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_adoptante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cel_adoptante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cel_adoptante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dir_adoptante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dir_adoptante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ingresos_mensuales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ingresos_mensuales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.activo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id_adoptante }) |
+    @Html.ActionLink("Regresar a la tabla", "Index")
+</p>

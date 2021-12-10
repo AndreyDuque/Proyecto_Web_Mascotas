@@ -1,0 +1,50 @@
+﻿@model mvc.Models.facilitador
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Facilitador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_facilitador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_facilitador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cel_facilitador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cel_facilitador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dir_facilitador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dir_facilitador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.activo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id_facilitador }) |
+    @Html.ActionLink("Regresar a la tabla", "Index")
+</p>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<mvc.Models.facilitador>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Facilitador</h2>
+
+<p>
+    @Html.ActionLink("Agregar nuevo facilitador", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_facilitador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cel_facilitador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dir_facilitador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.activo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom_facilitador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cel_facilitador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dir_facilitador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.activo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id_facilitador }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.id_facilitador }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.id_facilitador })
+        </td>
+    </tr>
+}
+
+</table>

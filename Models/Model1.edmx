@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Adopcion_PGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adoptante">
+          <Key>
+            <PropertyRef Name="id_adoptante" />
+          </Key>
+          <Property Name="id_adoptante" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="nom_adoptante" Type="nvarchar" MaxLength="50" />
+          <Property Name="cel_adoptante" Type="nvarchar" MaxLength="10" />
+          <Property Name="dir_adoptante" Type="nvarchar" MaxLength="50" />
+          <Property Name="ingresos_mensuales" Type="int" />
+          <Property Name="activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="facilitador">
+          <Key>
+            <PropertyRef Name="id_facilitador" />
+          </Key>
+          <Property Name="id_facilitador" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="nom_facilitador" Type="nvarchar" MaxLength="50" />
+          <Property Name="cel_facilitador" Type="nvarchar" MaxLength="10" />
+          <Property Name="dir_facilitador" Type="nvarchar" MaxLength="50" />
+          <Property Name="activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="mascota">
+          <Key>
+            <PropertyRef Name="id_mascota" />
+          </Key>
+          <Property Name="id_mascota" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="especie" Type="nvarchar" MaxLength="10" />
+          <Property Name="genero" Type="nvarchar" MaxLength="10" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="30" />
+          <Property Name="edad" Type="int" />
+          <Property Name="estado" Type="nvarchar(max)" />
+          <Property Name="observaciones" Type="nvarchar(max)" />
+          <Property Name="activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Seguimiento">
+          <Key>
+            <PropertyRef Name="cod_seguimiento" />
+          </Key>
+          <Property Name="cod_seguimiento" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="id_facilitador" Type="nvarchar" MaxLength="10" />
+          <Property Name="id_mascota" Type="nvarchar" MaxLength="10" />
+          <Property Name="id_adoptante" Type="nvarchar" MaxLength="10" />
+          <Property Name="estado_mascota" Type="nvarchar(max)" />
+          <Property Name="observaciones" Type="nvarchar(max)" />
+          <Property Name="activo" Type="bit" />
+        </EntityType>
+        <Function Name="Actualizar_adoptante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_adoptante" Type="nvarchar" Mode="In" />
+          <Parameter Name="nom_adoptante" Type="nvarchar" Mode="In" />
+          <Parameter Name="cel_adoptante" Type="nvarchar" Mode="In" />
+          <Parameter Name="dir_adoptante" Type="nvarchar" Mode="In" />
+          <Parameter Name="ingresos_mensuales" Type="int" Mode="In" />
+          <Parameter Name="activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="Actualizar_facilitador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_facilitador" Type="nvarchar" Mode="In" />
+          <Parameter Name="nom_facilitador" Type="nvarchar" Mode="In" />
+          <Parameter Name="cel_facilitador" Type="nvarchar" Mode="In" />
+          <Parameter Name="dir_facilitador" Type="nvarchar" Mode="In" />
+          <Parameter Name="activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="Actualizar_mascota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_mascota" Type="nvarchar" Mode="In" />
+          <Parameter Name="especie" Type="nvarchar" Mode="In" />
+          <Parameter Name="genero" Type="nvarchar" Mode="In" />
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="edad" Type="int" Mode="In" />
+          <Parameter Name="estado" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="observaciones" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="Actualizar_seguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cod_seguimiento" Type="nvarchar" Mode="In" />
+          <Parameter Name="fecha" Type="date" Mode="In" />
+          <Parameter Name="id_facilitador" Type="nvarchar" Mode="In" />
+          <Parameter Name="id_mascota" Type="nvarchar" Mode="In" />
+          <Parameter Name="id_adoptante" Type="nvarchar" Mode="In" />
+          <Parameter Name="estado_mascota" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="observaciones" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="Agregar_adoptante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_adoptante" Type="nvarchar" Mode="In" />
+          <Parameter Name="nom_adoptante" Type="nvarchar" Mode="In" />
+          <Parameter Name="cel_adoptante" Type="nvarchar" Mode="In" />
+          <Parameter Name="dir_adoptante" Type="nvarchar" Mode="In" />
+          <Parameter Name="ingresos_mensuales" Type="int" Mode="In" />
+          <Parameter Name="activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="Agregar_facilitador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_facilitador" Type="nvarchar" Mode="In" />
+          <Parameter Name="nom_facilitador" Type="nvarchar" Mode="In" />
+          <Parameter Name="cel_facilitador" Type="nvarchar" Mode="In" />
+          <Parameter Name="dir_facilitador" Type="nvarchar" Mode="In" />
+          <Parameter Name="activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="Agregar_mascota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_mascota" Type="nvarchar" Mode="In" />
+          <Parameter Name="especie" Type="nvarchar" Mode="In" />
+          <Parameter Name="genero" Type="nvarchar" Mode="In" />
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="edad" Type="int" Mode="In" />
+          <Parameter Name="estado" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="observaciones" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="Agregar_seguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cod_seguimiento" Type="nvarchar" Mode="In" />
+          <Parameter Name="fecha" Type="date" Mode="In" />
+          <Parameter Name="id_facilitador" Type="nvarchar" Mode="In" />
+          <Parameter Name="id_mascota" Type="nvarchar" Mode="In" />
+          <Parameter Name="id_adoptante" Type="nvarchar" Mode="In" />
+          <Parameter Name="estado_mascota" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="observaciones" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="anula_adoptante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="aid_adoptante" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="consultar_adoptante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cid_adoptante" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="consultar_facilitador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cid_facilitador" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Consultar_mascota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cid_mascota" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Consultar_seguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cod_seguimiento" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Eliminar_facilitador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="aid_facilitador" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Eliminar_mascota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="aid_mascota" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Eliminar_seguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cod_seguimiento" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="Adopcion_PGModelStoreContainer">
+          <EntitySet Name="adoptante" EntityType="Self.adoptante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="facilitador" EntityType="Self.facilitador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mascota" EntityType="Self.mascota" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seguimiento" EntityType="Self.Seguimiento" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Adopcion_PGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="adoptante">
+          <Key>
+            <PropertyRef Name="id_adoptante" />
+          </Key>
+          <Property Name="id_adoptante" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nom_adoptante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cel_adoptante" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="dir_adoptante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ingresos_mensuales" Type="Int32" />
+          <Property Name="activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="facilitador">
+          <Key>
+            <PropertyRef Name="id_facilitador" />
+          </Key>
+          <Property Name="id_facilitador" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nom_facilitador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cel_facilitador" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="dir_facilitador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="mascota">
+          <Key>
+            <PropertyRef Name="id_mascota" />
+          </Key>
+          <Property Name="id_mascota" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="especie" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="genero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="edad" Type="Int32" />
+          <Property Name="estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Seguimiento">
+          <Key>
+            <PropertyRef Name="cod_seguimiento" />
+          </Key>
+          <Property Name="cod_seguimiento" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="id_facilitador" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="id_mascota" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="id_adoptante" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="estado_mascota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="activo" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="Adopcion_PGEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="adoptante" EntityType="Self.adoptante" />
+          <EntitySet Name="facilitador" EntityType="Self.facilitador" />
+          <EntitySet Name="mascota" EntityType="Self.mascota" />
+          <EntitySet Name="Seguimiento" EntityType="Self.Seguimiento" />
+          <FunctionImport Name="Actualizar_adoptante">
+            <Parameter Name="id_adoptante" Mode="In" Type="String" />
+            <Parameter Name="nom_adoptante" Mode="In" Type="String" />
+            <Parameter Name="cel_adoptante" Mode="In" Type="String" />
+            <Parameter Name="dir_adoptante" Mode="In" Type="String" />
+            <Parameter Name="ingresos_mensuales" Mode="In" Type="Int32" />
+            <Parameter Name="activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="Actualizar_facilitador">
+            <Parameter Name="id_facilitador" Mode="In" Type="String" />
+            <Parameter Name="nom_facilitador" Mode="In" Type="String" />
+            <Parameter Name="cel_facilitador" Mode="In" Type="String" />
+            <Parameter Name="dir_facilitador" Mode="In" Type="String" />
+            <Parameter Name="activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="Actualizar_mascota">
+            <Parameter Name="id_mascota" Mode="In" Type="String" />
+            <Parameter Name="especie" Mode="In" Type="String" />
+            <Parameter Name="genero" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="edad" Mode="In" Type="Int32" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+            <Parameter Name="observaciones" Mode="In" Type="String" />
+            <Parameter Name="activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="Actualizar_seguimiento">
+            <Parameter Name="cod_seguimiento" Mode="In" Type="String" />
+            <Parameter Name="fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="id_facilitador" Mode="In" Type="String" />
+            <Parameter Name="id_mascota" Mode="In" Type="String" />
+            <Parameter Name="id_adoptante" Mode="In" Type="String" />
+            <Parameter Name="estado_mascota" Mode="In" Type="String" />
+            <Parameter Name="observaciones" Mode="In" Type="String" />
+            <Parameter Name="activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="Agregar_adoptante">
+            <Parameter Name="id_adoptante" Mode="In" Type="String" />
+            <Parameter Name="nom_adoptante" Mode="In" Type="String" />
+            <Parameter Name="cel_adoptante" Mode="In" Type="String" />
+            <Parameter Name="dir_adoptante" Mode="In" Type="String" />
+            <Parameter Name="ingresos_mensuales" Mode="In" Type="Int32" />
+            <Parameter Name="activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="Agregar_facilitador">
+            <Parameter Name="id_facilitador" Mode="In" Type="String" />
+            <Parameter Name="nom_facilitador" Mode="In" Type="String" />
+            <Parameter Name="cel_facilitador" Mode="In" Type="String" />
+            <Parameter Name="dir_facilitador" Mode="In" Type="String" />
+            <Parameter Name="activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="Agregar_mascota">
+            <Parameter Name="id_mascota" Mode="In" Type="String" />
+            <Parameter Name="especie" Mode="In" Type="String" />
+            <Parameter Name="genero" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="edad" Mode="In" Type="Int32" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+            <Parameter Name="observaciones" Mode="In" Type="String" />
+            <Parameter Name="activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="Agregar_seguimiento">
+            <Parameter Name="cod_seguimiento" Mode="In" Type="String" />
+            <Parameter Name="fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="id_facilitador" Mode="In" Type="String" />
+            <Parameter Name="id_mascota" Mode="In" Type="String" />
+            <Parameter Name="id_adoptante" Mode="In" Type="String" />
+            <Parameter Name="estado_mascota" Mode="In" Type="String" />
+            <Parameter Name="observaciones" Mode="In" Type="String" />
+            <Parameter Name="activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="anula_adoptante">
+            <Parameter Name="aid_adoptante" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="consultar_adoptante" ReturnType="Collection(Adopcion_PGModel.consultar_adoptante_Result)">
+            <Parameter Name="cid_adoptante" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="consultar_facilitador" ReturnType="Collection(Adopcion_PGModel.consultar_facilitador_Result)">
+            <Parameter Name="cid_facilitador" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Consultar_mascota" ReturnType="Collection(Adopcion_PGModel.Consultar_mascota_Result)">
+            <Parameter Name="cid_mascota" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Consultar_seguimiento" ReturnType="Collection(Adopcion_PGModel.Consultar_seguimiento_Result)">
+            <Parameter Name="cod_seguimiento" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Eliminar_facilitador">
+            <Parameter Name="aid_facilitador" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Eliminar_mascota">
+            <Parameter Name="aid_mascota" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Eliminar_seguimiento">
+            <Parameter Name="cod_seguimiento" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="consultar_adoptante_Result">
+          <Property Type="String" Name="id_adoptante" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="nom_adoptante" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cel_adoptante" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="dir_adoptante" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ingresos_mensuales" Nullable="true" />
+          <Property Type="Boolean" Name="activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="consultar_facilitador_Result">
+          <Property Type="String" Name="id_facilitador" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="nom_facilitador" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cel_facilitador" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="dir_facilitador" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Consultar_mascota_Result">
+          <Property Type="String" Name="id_mascota" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="especie" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="genero" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="edad" Nullable="true" />
+          <Property Type="String" Name="estado" Nullable="true" />
+          <Property Type="String" Name="observaciones" Nullable="true" />
+          <Property Type="Boolean" Name="activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Consultar_seguimiento_Result">
+          <Property Type="String" Name="cod_seguimiento" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="String" Name="id_facilitador" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="id_mascota" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="id_adoptante" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="estado_mascota" Nullable="true" />
+          <Property Type="String" Name="observaciones" Nullable="true" />
+          <Property Type="Boolean" Name="activo" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Adopcion_PGModelStoreContainer" CdmEntityContainer="Adopcion_PGEntities">
+          <EntitySetMapping Name="adoptante">
+            <EntityTypeMapping TypeName="Adopcion_PGModel.adoptante">
+              <MappingFragment StoreEntitySet="adoptante">
+                <ScalarProperty Name="id_adoptante" ColumnName="id_adoptante" />
+                <ScalarProperty Name="nom_adoptante" ColumnName="nom_adoptante" />
+                <ScalarProperty Name="cel_adoptante" ColumnName="cel_adoptante" />
+                <ScalarProperty Name="dir_adoptante" ColumnName="dir_adoptante" />
+                <ScalarProperty Name="ingresos_mensuales" ColumnName="ingresos_mensuales" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="facilitador">
+            <EntityTypeMapping TypeName="Adopcion_PGModel.facilitador">
+              <MappingFragment StoreEntitySet="facilitador">
+                <ScalarProperty Name="id_facilitador" ColumnName="id_facilitador" />
+                <ScalarProperty Name="nom_facilitador" ColumnName="nom_facilitador" />
+                <ScalarProperty Name="cel_facilitador" ColumnName="cel_facilitador" />
+                <ScalarProperty Name="dir_facilitador" ColumnName="dir_facilitador" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mascota">
+            <EntityTypeMapping TypeName="Adopcion_PGModel.mascota">
+              <MappingFragment StoreEntitySet="mascota">
+                <ScalarProperty Name="id_mascota" ColumnName="id_mascota" />
+                <ScalarProperty Name="especie" ColumnName="especie" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seguimiento">
+            <EntityTypeMapping TypeName="Adopcion_PGModel.Seguimiento">
+              <MappingFragment StoreEntitySet="Seguimiento">
+                <ScalarProperty Name="cod_seguimiento" ColumnName="cod_seguimiento" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id_facilitador" ColumnName="id_facilitador" />
+                <ScalarProperty Name="id_mascota" ColumnName="id_mascota" />
+                <ScalarProperty Name="id_adoptante" ColumnName="id_adoptante" />
+                <ScalarProperty Name="estado_mascota" ColumnName="estado_mascota" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Actualizar_adoptante" FunctionName="Adopcion_PGModel.Store.Actualizar_adoptante" />
+          <FunctionImportMapping FunctionImportName="Actualizar_facilitador" FunctionName="Adopcion_PGModel.Store.Actualizar_facilitador" />
+          <FunctionImportMapping FunctionImportName="Actualizar_mascota" FunctionName="Adopcion_PGModel.Store.Actualizar_mascota" />
+          <FunctionImportMapping FunctionImportName="Actualizar_seguimiento" FunctionName="Adopcion_PGModel.Store.Actualizar_seguimiento" />
+          <FunctionImportMapping FunctionImportName="Agregar_adoptante" FunctionName="Adopcion_PGModel.Store.Agregar_adoptante" />
+          <FunctionImportMapping FunctionImportName="Agregar_facilitador" FunctionName="Adopcion_PGModel.Store.Agregar_facilitador" />
+          <FunctionImportMapping FunctionImportName="Agregar_mascota" FunctionName="Adopcion_PGModel.Store.Agregar_mascota" />
+          <FunctionImportMapping FunctionImportName="Agregar_seguimiento" FunctionName="Adopcion_PGModel.Store.Agregar_seguimiento" />
+          <FunctionImportMapping FunctionImportName="anula_adoptante" FunctionName="Adopcion_PGModel.Store.anula_adoptante" />
+          <FunctionImportMapping FunctionImportName="consultar_adoptante" FunctionName="Adopcion_PGModel.Store.consultar_adoptante">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Adopcion_PGModel.consultar_adoptante_Result">
+                <ScalarProperty Name="id_adoptante" ColumnName="id_adoptante" />
+                <ScalarProperty Name="nom_adoptante" ColumnName="nom_adoptante" />
+                <ScalarProperty Name="cel_adoptante" ColumnName="cel_adoptante" />
+                <ScalarProperty Name="dir_adoptante" ColumnName="dir_adoptante" />
+                <ScalarProperty Name="ingresos_mensuales" ColumnName="ingresos_mensuales" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="consultar_facilitador" FunctionName="Adopcion_PGModel.Store.consultar_facilitador">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Adopcion_PGModel.consultar_facilitador_Result">
+                <ScalarProperty Name="id_facilitador" ColumnName="id_facilitador" />
+                <ScalarProperty Name="nom_facilitador" ColumnName="nom_facilitador" />
+                <ScalarProperty Name="cel_facilitador" ColumnName="cel_facilitador" />
+                <ScalarProperty Name="dir_facilitador" ColumnName="dir_facilitador" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Consultar_mascota" FunctionName="Adopcion_PGModel.Store.Consultar_mascota">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Adopcion_PGModel.Consultar_mascota_Result">
+                <ScalarProperty Name="id_mascota" ColumnName="id_mascota" />
+                <ScalarProperty Name="especie" ColumnName="especie" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Consultar_seguimiento" FunctionName="Adopcion_PGModel.Store.Consultar_seguimiento">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Adopcion_PGModel.Consultar_seguimiento_Result">
+                <ScalarProperty Name="cod_seguimiento" ColumnName="cod_seguimiento" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id_facilitador" ColumnName="id_facilitador" />
+                <ScalarProperty Name="id_mascota" ColumnName="id_mascota" />
+                <ScalarProperty Name="id_adoptante" ColumnName="id_adoptante" />
+                <ScalarProperty Name="estado_mascota" ColumnName="estado_mascota" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Eliminar_facilitador" FunctionName="Adopcion_PGModel.Store.Eliminar_facilitador" />
+          <FunctionImportMapping FunctionImportName="Eliminar_mascota" FunctionName="Adopcion_PGModel.Store.Eliminar_mascota" />
+          <FunctionImportMapping FunctionImportName="Eliminar_seguimiento" FunctionName="Adopcion_PGModel.Store.Eliminar_seguimiento" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
